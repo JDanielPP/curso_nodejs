@@ -1,1 +1,9 @@
-console.log("hola Juan Daniel!");
+const express=require('express');
+
+const app =express();
+
+app.get('/', function(req,res){res.send('Hola Mundo');});
+
+app.listen(3000);
+
+//localhost:3000
