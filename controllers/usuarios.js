@@ -5,7 +5,7 @@ const usuariosQueries=require("../models/usuarios");
 
 
 const usuariosGET=async(req=request, res=response)=>{
-    const{limit=5,desde=0}=req.query;
+    
 
     let {limite = 5, desde = 0} =req.query;
 
@@ -20,7 +20,7 @@ const usuariosGET=async(req=request, res=response)=>{
     let conn;
     try {
         conn= await pool.getConnection();
-        const usuarios=await conn.query(usuariosQueries.selectUsuarios,[parseInt(desde),arseInt(limit),]);
+        const usuarios=await conn.query(usuariosQueries.selectUsuarios,[desde,limit]);
         res.json({usuarios});
     } catch (error) {
         console.log(error);
